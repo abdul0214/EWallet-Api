@@ -27,7 +27,7 @@ public class WalletRest {
 
 	@ApiOperation(value = "Create a Wallet for a Customer by Customer id")
 	@PostMapping("/create")
-	public WalletDto create(@RequestParam(name = "id", defaultValue = "1L") Long id, @RequestParam Currency currency, @RequestParam String name) {
+	public WalletDto create(@RequestParam(name = "id") Long id, @RequestParam Currency currency, @RequestParam String name) {
 		return walletService.create(id, currency, name);
 	}
 
