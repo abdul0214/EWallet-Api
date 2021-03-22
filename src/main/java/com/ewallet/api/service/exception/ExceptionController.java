@@ -19,7 +19,7 @@ public class ExceptionController extends ResponseEntityExceptionHandler {
 	}
 
 	@ExceptionHandler(value = TransactionNotAllowed.class)
-	public ResponseEntity<ErrorMessage> handleTransactionNotAllowedException(ResourceNotFound e, WebRequest request) {
+	public ResponseEntity<ErrorMessage> handleTransactionNotAllowedException(TransactionNotAllowed e, WebRequest request) {
 		final HttpStatus status = HttpStatus.BAD_REQUEST;
 		return getErrorMessageResponseEntity(e, request, status);
 	}
