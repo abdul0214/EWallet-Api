@@ -1,10 +1,13 @@
 package com.ewallet.api.service;
 
-import com.ewallet.api.dto.model.*;
+import com.ewallet.api.dto.model.WalletAssembler;
+import com.ewallet.api.dto.model.WalletDto;
 import com.ewallet.api.model.*;
-import com.ewallet.api.repository.*;
-import com.ewallet.api.service.exception.types.*;
-import com.google.gson.Gson;
+import com.ewallet.api.repository.CustomerRepository;
+import com.ewallet.api.repository.TransactionRepository;
+import com.ewallet.api.repository.WalletRepository;
+import com.ewallet.api.service.exception.types.ResourceNotFound;
+import com.ewallet.api.service.exception.types.TransactionNotAllowed;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +21,6 @@ public class WalletService {
 	private final WalletAssembler walletAssembler;
 	private final CustomerRepository customerRepository;
 	private final TransactionRepository transactionRepository;
-
-	private final Gson gson;
 
 	public WalletDto create(Long id, Currency currency, String name) {
 		Wallet wallet = new Wallet();
